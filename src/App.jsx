@@ -1,25 +1,26 @@
 import React from 'react'
 import Nav from './Nav'
-import About from './About'
-import ImageGallery from './component/ImageGallery'
-import ContactForm from './component/ContactForm'
+import Home from './component/pages/Home'
+import Achievements from './component/pages/Achievements'
+import Placements from './component/pages/Placements'
+import Facilities from './component/pages/Facilities'
+import Faculty from './component/pages/Faculty'
+import ContactUs from './component/pages/ContactUs'
+import {Routes, Route} from 'react-router-dom'
+
 
 export default function App() {
 	return (
 		<>
 			<Nav />
 
-			<div className='text-9xl fixed z-[-100] font-bold left-1/2 translate-x-[-50%] mt-32'>
-				<div className='inline-block'>
-					SCHOOL OF <p className='text-red'>COMPUTERS</p>
-				</div>
-			</div>
-
-			<About/>
-
-			<ImageGallery/>
-
-			<ContactForm/>
+			<Routes>
+				<Route path='/' element={<Home/>}/>
+				<Route path='/achievements' element={<Achievements/>}/>
+				<Route path='/placements' element={<Placements/>}/>
+				<Route path='/facilities' element={<Facilities/>}/>
+				<Route path='/contact' element={<ContactUs/>}/>
+			</Routes>
 		</>
 	)
 }
