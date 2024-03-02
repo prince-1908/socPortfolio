@@ -35,7 +35,7 @@ export default function ImageGallery() {
 
 const itemData = [
     {
-        img: '../../public/blog_1625293877.jpg',
+        img: 'https://ipsacademy.org/assets/uploads/colleges/blog_1661423994.jpg',
         title: '',
         rows: 2,
         cols: 2,
