@@ -12,7 +12,10 @@ function srcset(image, size, rows = 1, cols = 1) {
 
 export default function ImageGallery() {
     return (
-        <div className='bg-black flex justify-center py-16'>
+        <div className='bg-black flex flex-col justify-center items-center py-16'>
+            <div className='py-16'>
+                <h2 className='text-7xl text-red border-b-2 border-red'>Gallery</h2>
+            </div>
             <ImageList
                 sx={{width: 1000, height: 900}}
                 variant="quilted"

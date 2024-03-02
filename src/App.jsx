@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import About from './About'
 import ImageGallery from './component/ImageGallery'
+import ContactForm from './component/ContactForm'
 
 export default function App() {
 	return (
@@ -17,6 +18,8 @@ export default function App() {
 			<About/>
 
 			<ImageGallery/>
+
+			<ContactForm/>
 		</>
 	)
 }
