@@ -5,11 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 function Nav() {
     return (
         <nav className="w-full top-0 flex justify-between items-center">
-            <Link to="/"><img src="/public/IPSLogoWhite.svg" alt="" className='p-4'/></Link>
-
-            <div className='absolute top-5 right-5 hidden'>
-                <Menu size={60}/>
-            </div>
+            <Link to="/"><img src="https://www.ipsacademy.org/assets/images/IPSALogo.svg" alt="" className='p-4'/></Link>
 
             <ul className='flex justify-end h-24 items-center text-xl'>
                 <li className="mx-8">
