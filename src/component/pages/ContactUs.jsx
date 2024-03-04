@@ -45,6 +45,10 @@ export default function ContactUs() {
 				</div>))}
 			</div>
 
+			<div className='flex justify-center py-10'>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.95391430699!2d75.82394597482705!3d22.655506829927496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd2850d7a9c7%3A0x193ddde583795554!2sSchool%20Of%20Computers%2C%20Ips%20Academy!5e0!3m2!1sen!2sin!4v1709594780777!5m2!1sen!2sin" width="100%" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+
 			{contactBlocks.map((data, index) => (
 				<div key={index} className='py-16'>
 					<div className='text-4xl font-semibold text-center py-8 bg-black'>

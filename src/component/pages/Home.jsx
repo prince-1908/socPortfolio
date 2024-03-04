@@ -3,6 +3,7 @@ import About from '../../About'
 import ImageGallery from '../ImageGallery'
 import ContactForm from '../ContactForm'
 
+
 export default function Home() {
     return (
         <div>
