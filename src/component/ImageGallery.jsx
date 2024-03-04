@@ -44,46 +44,46 @@ const itemData = [
         cols: 2,
     },
     {
-        img: '../../public/blog_1635098225.jpeg',
+        img: '/blog_1635098225.jpeg',
         title: 'Burger',
     },
     {
-        img: '../../public/blog_1635098241.jpeg',
+        img: '/blog_1635098241.jpeg',
         title: 'Camera',
     },
     {
-        img: '../../public/blog_1635098254.jpeg',
+        img: '/blog_1635098254.jpeg',
         title: 'Coffee',
         cols: 2,
     },
     {
-        img: '../../public/blog_1655805605.jpg',
+        img: '/blog_1655805605.jpg',
         title: 'Hats',
         cols: 2,
     },
     {
-        img: '../../public/blog_1655805682.jpg',
+        img: '/blog_1655805682.jpg',
         title: 'Honey',
         author: '@arwinneil',
         rows: 2,
         cols: 2,
     },
     {
-        img: '../../public/blog_1661331976.jpeg',
+        img: '/blog_1661331976.jpeg',
         title: 'Basketball',
     },
     {
-        img: '../../public/blog_1661331987.jpeg',
+        img: '/blog_1661331987.jpeg',
         title: 'Fern',
     },
     {
-        img: '../../public/blog_1661423879.jpg',
+        img: '/blog_1661423879.jpg',
         title: 'Mushrooms',
         rows: 2,
         cols: 2,
     },
     {
-        img: '../../public/blog_1661423994.jpg',
+        img: '/blog_1661423994.jpg',
         title: 'Tomato basil',
     },
 ];

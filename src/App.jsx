@@ -19,6 +19,7 @@ export default function App() {
 				<Route path='/achievements' element={<Achievements/>}/>
 				<Route path='/placements' element={<Placements/>}/>
 				<Route path='/facilities' element={<Facilities/>}/>
+				<Route path='/faculty' element={<Faculty/>}/>
 				<Route path='/contact' element={<ContactUs/>}/>
 			</Routes>
 		</>
