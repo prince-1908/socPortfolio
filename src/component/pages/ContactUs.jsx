@@ -11,13 +11,13 @@ export default function ContactUs() {
 	}
 
 	const handleContact = (index) => {
-		if(index === 0){
+		if (index === 0) {
 			window.location.href = "mailto:office.soc@ipsacademy.org";
 		}
-		else if(index === 1){
-			window.location.href = "tel:+91-7067480286";
+		else if (index === 1) {
+			window.location.href = "tel:+0731-4014858";
 		}
-	} 
+	}
 
 	return (
 		<div className='mx-48'>
@@ -34,7 +34,7 @@ export default function ContactUs() {
 			<div className='flex justify-evenly bg-black'>
 
 				{data.map((dt, index) => (<div key={index} className='border p-8 flex flex-col items-center gap-4 rounded-3xl hover:shadow-lg hover:shadow-red transition duration-200 hover:scale-[1.02] cursor-pointer hover:text-red'
-				onClick={() => handleContact(index)}
+					onClick={() => handleContact(index)}
 				>
 					{createElement(dt.icon, { size: 72 })}
 					<p className='text-3xl'>{dt.content}</p>
@@ -45,20 +45,26 @@ export default function ContactUs() {
 				</div>))}
 			</div>
 
-			<div className='text-4xl font-semibold text-center py-16 bg-black'>
-				For Admissions (<span className='text-red'>Counselling</span>):
-			</div>
-
-			<div className='bg-black flex'>
-				<div className='w-1/3'>
-					<img src="https://www.ipsacademy.org/assets/uploads/faculty/faculty_1587022021.JPG" alt="Mr. Rohit Kumar Vyas" />
-				</div>
-				<div className='grow text-4xl flex flex-col justify-evenly py-16 px-16 border-t border-r border-b rounded-r-3xl'>
-					<p>Mr. Rohit Kumar Vyas</p>
-					<div className='flex'><p className='hover:text-red transition cursor-pointer'>8085224628</p>,<p className='hover:text-red transition cursor-pointer'>9926999161</p></div>
-					<p className='hover:text-red transition cursor-pointer'>admission.soc@ipsacademy.org</p>
-				</div>
-			</div>
+			{contactBlocks.map((data, index) => (
+				<div key={index}>
+					<div className='text-4xl font-semibold text-center py-16 bg-black'>
+						{data.heading}
+					</div>
+					<div className='bg-black flex'>
+						<div className='w-1/3'>
+							<img src={data.img} alt="Mr. Rohit Kumar Vyas" />
+						</div>
+						<div className='grow text-4xl flex flex-col justify-evenly py-16 px-16 border-t border-r border-b rounded-r-3xl'>
+							<p>{data.name}</p>
+							<div className='flex'>
+								{data.num.map((number, index) => (
+									<p key={index} onClick={() => { window.location.href = "tel:8085224628" }} className='hover:text-red transition cursor-pointer mr-7'>{number}</p>
+								))}
+							</div>
+							<p onClick={() => { window.location.href = "mailto:admission.soc@ipsacademy.org" }} className='hover:text-red transition cursor-pointer'>{data.email}</p>
+						</div>
+					</div>
+				</div>))}
 		</div>
 	)
 }
@@ -74,5 +80,29 @@ const data = [
 		icon: Phone,
 		content: "+0731-4014858 , 859",
 		Label: "Call Now"
+	},
+];
+
+const contactBlocks = [
+	{
+		img: "https://www.ipsacademy.org/assets/uploads/faculty/faculty_1587022021.JPG",
+		heading: "For Admissions(Counselling)",
+		name: "Mr. Rohit Kumar Vyas",
+		num: ["8085224628", "9926999161"],
+		email: "admission.soc@ipsacademy.org"
+	},
+	{
+		img: "https://www.ipsacademy.org/assets/uploads/faculty/faculty_1587017445.JPG",
+		heading: "Discipline and Anti Ragging Committee",
+		name: "Dr.Bharat Singh",
+		num: ["9826067207"],
+		email: "bharatsingh@ipsacademy.org"
+	},
+	{
+		img: "https://www.ipsacademy.org/assets/uploads/faculty/faculty_1587021947.JPG",
+		heading: "Women's Grievance Cell",
+		name: "Dr. Naziya Hussain",
+		num: ["0731-4014858"],
+		email: "naziyahussain@ipsacademy.org"
 	},
 ];
