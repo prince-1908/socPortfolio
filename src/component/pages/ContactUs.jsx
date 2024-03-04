@@ -20,7 +20,7 @@ export default function ContactUs() {
 	}
 
 	return (
-		<div className='mx-48'>
+		<div className='mx-48 pb-[10vh] bg-black'>
 			<div className="text-9xl  fixed z-[-100] font-bold top-[20%] left-1/2 translate-x-[-50%]">
 				<div className='inline-block'>
 					Contact <span className='text-red'>Us</span>
@@ -46,8 +46,8 @@ export default function ContactUs() {
 			</div>
 
 			{contactBlocks.map((data, index) => (
-				<div key={index}>
-					<div className='text-4xl font-semibold text-center py-16 bg-black'>
+				<div key={index} className='py-16'>
+					<div className='text-4xl font-semibold text-center py-8 bg-black'>
 						{data.heading}
 					</div>
 					<div className='bg-black flex'>

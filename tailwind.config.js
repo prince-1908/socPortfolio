@@ -9,7 +9,8 @@ export default {
     colors:{
       'red': '#ED0C32',
       'white': 'white',
-      'black': 'black'
+      'black': 'black',
+      'transparent': 'transparent'
     }
   },
   plugins: [],

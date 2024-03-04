@@ -39,7 +39,7 @@ export default function Faculty() {
                 </div>
             </div>
 
-            <div className='mt-[40vh] bg-black columns-4 mb-[40vh]'>
+            <div className='mt-[40vh] bg-black columns-4 pb-[40vh]'>
                 {data.map((data, index) => (
                     <Card
                         sx={{ maxWidth: 345, backgroundColor: '#18181b', color: 'white' }} className='mb-4'

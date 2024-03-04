@@ -7,6 +7,7 @@ import Facilities from './component/pages/Facilities'
 import Faculty from './component/pages/Faculty'
 import ContactUs from './component/pages/ContactUs'
 import {Routes, Route} from 'react-router-dom'
+import { Footer } from './Footer'
 
 
 export default function App() {
@@ -22,6 +23,8 @@ export default function App() {
 				<Route path='/faculty' element={<Faculty/>}/>
 				<Route path='/contact' element={<ContactUs/>}/>
 			</Routes>
+
+			<Footer/>
 		</>
 	)
 }
