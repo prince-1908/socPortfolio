@@ -5,19 +5,27 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import emailjs from '@emailjs/browser';
-import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
 
 export default function ContactForm() {
     const [state, setState] = useState('');
-    const [success, setSuccess] = useState(false);
+    const [open, setOpen] = useState(false);
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
 
     const form = useRef();
 
     const handleSucessAlert = () => {
-        setSuccess(true);
-        setTimeout(() => {
-            setSuccess(false);
-        }, 2000);
+        setOpen(true);
     }
 
     const sendEmail = (e) => {
@@ -30,6 +38,9 @@ export default function ContactForm() {
                 () => {
                     console.log('SUCCESS!');
                     handleSucessAlert();
+                    form.current.reset();
+                    setState('');
+                    setCourse('');
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
@@ -40,6 +51,22 @@ export default function ContactForm() {
     const handleStateChange = (event) => {
         setState(event.target.value);
     };
+
+    const action = (
+        <React.Fragment>
+            <Button color="primary" size="small" onClick={handleClose}>
+                Okay
+            </Button>
+            <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+            >
+                <CloseIcon fontSize="small" />
+            </IconButton>
+        </React.Fragment>
+    );
 
     const [Course, setCourse] = useState('');
 
@@ -63,8 +90,14 @@ export default function ContactForm() {
             </div>
 
             <div className='border grow text-black bg-white bg-opacity-75 flex flex-col px-16 relative'>
-                <div className={`${success ? 'block' : 'hidden'}`}>
-                    <Alert severity="success" className={`absolute right-2 top-2`} >Email Sent Successfully.</Alert>
+                <div>
+                    <Snackbar
+                        open={open}
+                        autoHideDuration={6000}
+                        onClose={handleClose}
+                        message="Email Sent"
+                        action={action}
+                    />
                 </div>
 
                 <div className='font-semibold text-4xl text-center py-2 mt-8'>
@@ -82,7 +115,7 @@ export default function ContactForm() {
                     <TextField id="enquirerEmail" name='from_email' label="Enter Email Address" variant="outlined" required />
 
                     <FormControl fullWidth>
-                        <InputLabel id="enquirerState">Select State</InputLabel>
+                        <InputLabel id="enquirerState">Select State*</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -90,6 +123,7 @@ export default function ContactForm() {
                             label="Select State"
                             onChange={handleStateChange}
                             name='from_state'
+                            required
                         >
                             {
                                 statesAndUTs.map((state) => (
@@ -100,7 +134,7 @@ export default function ContactForm() {
                     </FormControl>
 
                     <FormControl fullWidth>
-                        <InputLabel id="enquirerCourse">Select Course</InputLabel>
+                        <InputLabel id="enquirerCourse">Select Course*</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -108,6 +142,7 @@ export default function ContactForm() {
                             label="Select Course"
                             onChange={handleCourseChange}
                             name='enquire_course'
+                            required
                         >
                             {
                                 course.map((course) => (
@@ -117,10 +152,10 @@ export default function ContactForm() {
                         </Select>
                     </FormControl>
 
-                    <textarea name="message" id="message" cols="30" rows="2" placeholder='Your Message...' className='bg-transparent border rounded p-2 placeholder:text-black'></textarea>
+                    <textarea name="message" id="message" cols="30" rows="2" placeholder='Your Message...*' className='bg-transparent border rounded p-2 placeholder:text-black'></textarea>
 
                     <div className='flex justify-around px-16'>
-                        <button className='border rounded p-4 w-1/3 cursor-pointer hover:bg-[#ED0C32CC]  hover:border-white hover:text-white transition hover:font-bold' type="reset">reset</button>
+                        <button className='border rounded p-4 w-1/3 cursor-pointer hover:bg-[#ED0C32CC]  hover:border-white hover:text-white transition hover:font-bold' type="reset" onClick={() => {setCourse(''); setState('')}}>reset</button>
 
                         <input type="submit" value="Send" className='border rounded p-4 w-1/3 cursor-pointer hover:bg-[#ED0C32CC]  hover:border-white hover:text-white transition hover:font-bold' />
                     </div>
